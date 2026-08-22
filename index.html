@@ -474,6 +474,33 @@ img { max-width: 100%; display: block; }
   .admin-item { grid-template-columns: 1fr; }
 }
 
+
+/* ===== KHUYẾN HỌC NÂNG CẤP + ỦNG HỘ ===== */
+.scholarship-toolbar{margin-top:24px;padding:16px;border:1px solid #eadfce;background:#fff;border-radius:12px;display:flex;justify-content:space-between;align-items:end;gap:14px;flex-wrap:wrap}
+.filter-label{display:block;font-size:12px;font-weight:700;color:#665a4b;margin-bottom:6px}
+.filter-select{min-width:200px;border:1px solid #d9c9b3;background:#fff;border-radius:9px;padding:10px 12px;font:inherit}
+.scholarship-summary{color:var(--maroon);font-weight:700;font-size:13px}
+.student-table tbody tr:hover{background:#fffaf4}
+.student-table td:first-child{font-weight:700}
+.support-section{background:linear-gradient(180deg,#fffdf8,#fff4e5)}
+.support-grid{margin-top:30px;display:grid;grid-template-columns:350px 1fr;gap:28px;align-items:start}
+.qr-card,.support-list-card{background:#fff;border:1px solid #ead9be;border-radius:18px;box-shadow:0 12px 34px rgba(87,48,14,.09)}
+.qr-card{padding:24px;text-align:center}
+.qr-frame{width:min(100%,285px);aspect-ratio:1;margin:0 auto 18px;border:2px dashed #d7bd91;border-radius:16px;display:grid;place-items:center;overflow:hidden;background:#fffaf2}
+.qr-frame img{width:100%;height:100%;object-fit:contain}
+.qr-placeholder{color:#9b8464;padding:26px;line-height:1.6}
+.qr-card h4,.support-list-head h4{margin:0;color:var(--maroon);font-family:var(--serif);font-size:21px}
+.qr-card p{margin:7px 0;color:var(--muted);font-size:13px;line-height:1.6}
+.support-list-card{overflow:hidden}
+.support-list-head{padding:20px 22px;border-bottom:1px solid #eadfce;background:#fffaf2;display:flex;justify-content:space-between;gap:12px;align-items:center;flex-wrap:wrap}
+.support-total{font-weight:700;color:var(--gold)}
+.support-table-wrap{overflow-x:auto}
+.support-table{width:100%;border-collapse:collapse}
+.support-table th,.support-table td{padding:12px 14px;border-bottom:1px solid #eee4d6;font-size:13px;text-align:left}
+.support-table th{color:var(--maroon)}
+.admin-filter-row{display:flex;gap:10px;align-items:end;flex-wrap:wrap;margin:14px 0}
+@media(max-width:860px){.support-grid{grid-template-columns:1fr}}
+
 </style>
 </head>
 <body>
@@ -508,6 +535,7 @@ img { max-width: 100%; display: block; }
         <a href="#tin-tuc"><i class="fa-regular fa-newspaper"></i> TIN TỨC</a>
         <a href="#khuyen-hoc"><i class="fa-solid fa-graduation-cap"></i> KHUYẾN HỌC</a>
         <a href="#lien-he"><i class="fa-solid fa-phone"></i> LIÊN HỆ</a>
+        <a href="#ung-ho"><i class="fa-solid fa-heart"></i> ỦNG HỘ</a>
         <a href="#quan-tri"><i class="fa-solid fa-gear"></i> QUẢN TRỊ</a>
       </nav>
     </div>
@@ -563,10 +591,22 @@ img { max-width: 100%; display: block; }
             <p>Ghi nhận và vinh danh con cháu có thành tích tốt trong học tập, thi cử, nghiên cứu và rèn luyện.</p>
           </div>
         </div>
+
+        <div class="scholarship-toolbar">
+          <div>
+            <label class="filter-label" for="school-year-filter">Lọc theo năm học</label>
+            <select id="school-year-filter" class="filter-select">
+              <option value="">Tất cả năm học</option>
+            </select>
+          </div>
+          <div id="scholarship-summary" class="scholarship-summary">Đang tải...</div>
+        </div>
+
         <div class="student-table-wrap">
           <table class="student-table">
             <thead>
               <tr>
+                <th>STT</th>
                 <th>Họ và tên</th>
                 <th>Lớp</th>
                 <th>Thành tích</th>
@@ -575,13 +615,54 @@ img { max-width: 100%; display: block; }
               </tr>
             </thead>
             <tbody id="public-student-list">
-              <tr><td colspan="5" class="loading-text">Đang tải danh sách học sinh...</td></tr>
+              <tr><td colspan="6" class="loading-text">Đang tải danh sách học sinh...</td></tr>
             </tbody>
           </table>
         </div>
       </div>
     </section>
 
+
+
+    <section class="section support-section" id="ung-ho">
+      <div class="container">
+        <p class="eyebrow">ỦNG HỘ</p>
+        <h3>Chung tay xây dựng Quỹ Gia tộc Võ Văn</h3>
+        <p>Mọi sự đóng góp của bà con và mạnh thường quân là nguồn động viên quý báu để duy trì hoạt động khuyến học, gìn giữ từ đường và các hoạt động chung của Gia tộc.</p>
+
+        <div class="support-grid">
+          <div class="qr-card">
+            <div class="qr-frame">
+              <div class="qr-placeholder" id="support-qr-placeholder">
+                <i class="fa-solid fa-qrcode" style="font-size:48px;display:block;margin-bottom:12px"></i>
+                Mã QR ngân hàng sẽ hiển thị tại đây.<br>Gửi ảnh QR cho tôi để chèn trực tiếp vào website.
+              </div>
+              <img id="support-qr-image" alt="Mã QR ủng hộ" style="display:none">
+            </div>
+            <h4>Ủng hộ qua chuyển khoản</h4>
+            <p>Quét mã QR bằng ứng dụng ngân hàng.</p>
+            <p><strong>Nội dung gợi ý:</strong><br>ỦNG HỘ GIA TỘC - HỌ TÊN</p>
+          </div>
+
+          <div class="support-list-card">
+            <div class="support-list-head">
+              <h4>Danh sách người ủng hộ</h4>
+              <div class="support-total" id="support-total">Tổng: 0đ</div>
+            </div>
+            <div class="support-table-wrap">
+              <table class="support-table">
+                <thead>
+                  <tr><th>STT</th><th>Họ và tên</th><th>Số tiền</th><th>Nội dung</th><th>Ngày ủng hộ</th></tr>
+                </thead>
+                <tbody id="public-supporter-list">
+                  <tr><td colspan="5" class="loading-text">Đang tải danh sách...</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
     <section class="section admin-section" id="quan-tri">
       <div class="container">
@@ -613,6 +694,7 @@ img { max-width: 100%; display: block; }
             <div class="admin-tabs">
               <button class="admin-tab active" data-panel="admin-news-panel" type="button"><i class="fa-regular fa-newspaper"></i> Tin tức</button>
               <button class="admin-tab" data-panel="admin-student-panel" type="button"><i class="fa-solid fa-graduation-cap"></i> Khuyến học</button>
+              <button class="admin-tab" data-panel="admin-support-panel" type="button"><i class="fa-solid fa-heart"></i> Ủng hộ</button>
             </div>
 
             <div class="admin-panel active" id="admin-news-panel">
@@ -655,6 +737,7 @@ img { max-width: 100%; display: block; }
 
             <div class="admin-panel" id="admin-student-panel">
               <h3>Quản lý học sinh nhận thưởng</h3>
+              <div class="admin-filter-row"><div class="admin-field"><label>Lọc năm học</label><select class="admin-select" id="admin-student-year-filter"><option value="">Tất cả năm học</option></select></div></div>
               <form id="student-form">
                 <input type="hidden" id="student-id">
                 <div class="admin-form-grid">
@@ -695,6 +778,27 @@ img { max-width: 100%; display: block; }
               </form>
               <div class="admin-list" id="admin-student-list"></div>
             </div>
+
+            <div class="admin-panel" id="admin-support-panel">
+              <h3>Quản lý danh sách ủng hộ</h3>
+              <form id="supporter-form">
+                <input type="hidden" id="supporter-id">
+                <div class="admin-form-grid">
+                  <div class="admin-field"><label>Họ và tên *</label><input class="admin-input" id="supporter-name" required></div>
+                  <div class="admin-field"><label>Số tiền (VNĐ) *</label><input class="admin-input" id="supporter-amount" type="number" min="0" step="1000" required></div>
+                  <div class="admin-field"><label>Ngày ủng hộ</label><input class="admin-input" id="supporter-date" type="date"></div>
+                  <div class="admin-field"><label>Hiển thị công khai</label><select class="admin-select" id="supporter-published"><option value="1">Có</option><option value="0">Không</option></select></div>
+                  <div class="admin-field full"><label>Nội dung / Ghi chú</label><input class="admin-input" id="supporter-note" placeholder="Ủng hộ quỹ khuyến học..."></div>
+                </div>
+                <div class="admin-actions">
+                  <button class="admin-btn primary" type="submit"><i class="fa-solid fa-floppy-disk"></i> Lưu khoản ủng hộ</button>
+                  <button class="admin-btn light" type="button" id="supporter-reset">Nhập mới</button>
+                </div>
+                <div id="supporter-status" class="admin-status"></div>
+              </form>
+              <div class="admin-list" id="admin-supporter-list"></div>
+            </div>
+
           </div>
         </div>
       </div>
@@ -748,6 +852,7 @@ img { max-width: 100%; display: block; }
 
   <script>
 const API_BASE = "https://giatoc-vovan-api.vothien-dna.workers.dev";
+const SUPPORT_QR_URL = ""; // khi có ảnh QR, tôi sẽ chèn vào đây
 
 const toggle = document.querySelector('.menu-toggle');
 const nav = document.querySelector('.nav');
@@ -790,11 +895,15 @@ function formatDate(value) {
 
 function classRank(value) {
   const s = String(value || "").trim().toLowerCase();
-  if (s.includes("đại học") || s.includes("dai hoc")) return 100;
-  const n = parseInt(s.match(/\d+/)?.[0] || "", 10);
-  if (!Number.isNaN(n)) return n;
-  if (s.includes("mầm") || s.includes("mam")) return -1;
-  return 0;
+  if (s.includes("đại học") || s.includes("dai hoc") || s.includes("sinh viên") || s.includes("sinh vien")) return 200;
+  if (s.includes("cao đẳng") || s.includes("cao dang")) return 190;
+  const m = s.match(/\d+/);
+  if (m) {
+    const n = Number(m[0]);
+    if (n >= 1 && n <= 12) return 100 + n;
+  }
+  if (s.includes("mầm") || s.includes("mam") || s.includes("mẫu giáo") || s.includes("mau giao")) return 1;
+  return 50;
 }
 
 async function api(path, options = {}) {
@@ -833,32 +942,54 @@ async function loadPublicNews() {
   }
 }
 
+let ALL_STUDENTS = [];
+
+function syncSchoolYearFilters() {
+  const years = [...new Set(ALL_STUDENTS.map(x => String(x.school_year || "").trim()).filter(Boolean))]
+    .sort((a,b) => b.localeCompare(a, "vi"));
+  ["school-year-filter","admin-student-year-filter"].forEach(id => {
+    const el = document.getElementById(id);
+    if (!el) return;
+    const current = el.value;
+    el.innerHTML = '<option value="">Tất cả năm học</option>' + years.map(y => `<option value="${escapeHtml(y)}">${escapeHtml(y)}</option>`).join("");
+    if (years.includes(current)) el.value = current;
+  });
+}
+
+function renderPublicStudents() {
+  const tbody = document.getElementById("public-student-list");
+  const year = document.getElementById("school-year-filter")?.value || "";
+  const summary = document.getElementById("scholarship-summary");
+  const items = ALL_STUDENTS
+    .filter(x => !year || String(x.school_year || "") === year)
+    .sort((a,b) => classRank(b.class_name)-classRank(a.class_name) || String(a.full_name).localeCompare(String(b.full_name),"vi"));
+
+  if (!items.length) {
+    tbody.innerHTML = '<tr><td colspan="6" class="empty-text">Chưa có học sinh trong năm học đã chọn.</td></tr>';
+    if (summary) summary.textContent = "0 học sinh";
+    return;
+  }
+  tbody.innerHTML = items.map((item,i) => {
+    const reward = [formatMoney(item.reward_amount), item.reward_note || ""].filter(Boolean).join(" - ");
+    return `<tr><td>${i+1}</td><td>${escapeHtml(item.full_name)}</td><td>${escapeHtml(item.class_name)}</td><td>${escapeHtml(item.achievement||"")}</td><td>${escapeHtml(reward)}</td><td>${escapeHtml(item.school_year||"")}</td></tr>`;
+  }).join("");
+  if (summary) summary.textContent = `${items.length} học sinh`;
+}
+
 async function loadPublicStudents() {
   const tbody = document.getElementById("public-student-list");
   if (!tbody) return;
   try {
     const res = await api("/api/students");
-    const items = (res.data || []).sort((a, b) => classRank(b.class_name) - classRank(a.class_name) || a.full_name.localeCompare(b.full_name, "vi"));
-    if (!items.length) {
-      tbody.innerHTML = '<tr><td colspan="5" class="empty-text">Chưa có danh sách học sinh.</td></tr>';
-      return;
-    }
-    tbody.innerHTML = items.map(item => {
-      const reward = [formatMoney(item.reward_amount), item.reward_note || ""].filter(Boolean).join(" - ");
-      return `
-        <tr>
-          <td><strong>${escapeHtml(item.full_name)}</strong></td>
-          <td>${escapeHtml(item.class_name)}</td>
-          <td>${escapeHtml(item.achievement || "")}</td>
-          <td>${escapeHtml(reward)}</td>
-          <td>${escapeHtml(item.school_year || "")}</td>
-        </tr>
-      `;
-    }).join("");
-  } catch (e) {
-    tbody.innerHTML = `<tr><td colspan="5" class="empty-text">Không tải được danh sách: ${escapeHtml(e.message)}</td></tr>`;
+    ALL_STUDENTS = res.data || [];
+    syncSchoolYearFilters();
+    renderPublicStudents();
+  } catch(e) {
+    tbody.innerHTML = `<tr><td colspan="6" class="empty-text">Không tải được danh sách: ${escapeHtml(e.message)}</td></tr>`;
   }
 }
+document.getElementById("school-year-filter")?.addEventListener("change", renderPublicStudents);
+document.getElementById("admin-student-year-filter")?.addEventListener("change", loadAdminStudents);
 
 function getAdminKey() {
   return sessionStorage.getItem("vovan_admin_key") || "";
@@ -890,6 +1021,7 @@ function showDashboard() {
   document.getElementById("admin-dashboard")?.classList.add("show");
   loadAdminNews();
   loadAdminStudents();
+  loadAdminSupporters();
 }
 
 function showLogin() {
@@ -1069,29 +1201,28 @@ async function loadAdminStudents() {
   box.innerHTML = '<div class="loading-text">Đang tải...</div>';
   try {
     const res = await api("/api/students");
-    const items = (res.data || []).sort((a, b) => classRank(b.class_name) - classRank(a.class_name) || a.full_name.localeCompare(b.full_name, "vi"));
-    if (!items.length) {
-      box.innerHTML = '<div class="empty-text">Chưa có học sinh.</div>';
-      return;
-    }
+    ALL_STUDENTS = res.data || [];
+    syncSchoolYearFilters();
+    const year = document.getElementById("admin-student-year-filter")?.value || "";
+    const items = ALL_STUDENTS
+      .filter(x => !year || String(x.school_year || "") === year)
+      .sort((a,b) => classRank(b.class_name)-classRank(a.class_name) || String(a.full_name).localeCompare(String(b.full_name),"vi"));
+
+    if (!items.length) { box.innerHTML='<div class="empty-text">Chưa có học sinh trong năm học đã chọn.</div>'; return; }
+
     box.innerHTML = items.map(item => `
       <div class="admin-item">
-        <div>
-          <h4>${escapeHtml(item.full_name)} — Lớp ${escapeHtml(item.class_name)}</h4>
-          <p>${escapeHtml(item.achievement || "")}</p>
-          <p>${escapeHtml([formatMoney(item.reward_amount), item.reward_note || ""].filter(Boolean).join(" - "))} ${item.school_year ? " • " + escapeHtml(item.school_year) : ""}</p>
-        </div>
+        <div><h4>${escapeHtml(item.full_name)} — Lớp ${escapeHtml(item.class_name)}</h4>
+        <p>${escapeHtml(item.achievement||"")}</p>
+        <p>${escapeHtml([formatMoney(item.reward_amount),item.reward_note||""].filter(Boolean).join(" - "))}${item.school_year ? " • "+escapeHtml(item.school_year) : ""}</p></div>
         <div class="admin-item-actions">
           <button class="admin-btn small gold" type="button" data-student-edit="${item.id}">Sửa</button>
           <button class="admin-btn small danger" type="button" data-student-delete="${item.id}">Xóa</button>
         </div>
-      </div>
-    `).join("");
-    box.querySelectorAll("[data-student-edit]").forEach(btn => btn.addEventListener("click", () => editStudent(btn.dataset.studentEdit)));
-    box.querySelectorAll("[data-student-delete]").forEach(btn => btn.addEventListener("click", () => deleteStudent(btn.dataset.studentDelete)));
-  } catch (e) {
-    box.innerHTML = `<div class="empty-text">${escapeHtml(e.message)}</div>`;
-  }
+      </div>`).join("");
+    box.querySelectorAll("[data-student-edit]").forEach(btn=>btn.addEventListener("click",()=>editStudent(btn.dataset.studentEdit)));
+    box.querySelectorAll("[data-student-delete]").forEach(btn=>btn.addEventListener("click",()=>deleteStudent(btn.dataset.studentDelete)));
+  } catch(e) { box.innerHTML=`<div class="empty-text">${escapeHtml(e.message)}</div>`; }
 }
 
 async function editStudent(id) {
@@ -1122,12 +1253,78 @@ async function deleteStudent(id) {
   }
 }
 
+
+function setupSupportQr(){
+  const img=document.getElementById("support-qr-image"), ph=document.getElementById("support-qr-placeholder");
+  if(SUPPORT_QR_URL && img && ph){img.src=SUPPORT_QR_URL;img.style.display="block";ph.style.display="none";}
+}
+
+async function loadPublicSupporters(){
+  const tbody=document.getElementById("public-supporter-list"), totalEl=document.getElementById("support-total");
+  if(!tbody)return;
+  try{
+    const res=await api("/api/supporters");
+    const items=(res.data||[]).filter(x=>Number(x.published??1)===1);
+    const total=items.reduce((s,x)=>s+Number(x.amount||0),0);
+    if(totalEl)totalEl.textContent="Tổng: "+formatMoney(total);
+    if(!items.length){tbody.innerHTML='<tr><td colspan="5" class="empty-text">Chưa có dữ liệu ủng hộ.</td></tr>';return;}
+    tbody.innerHTML=items.map((x,i)=>`<tr><td>${i+1}</td><td><strong>${escapeHtml(x.full_name||"")}</strong></td><td>${escapeHtml(formatMoney(x.amount))}</td><td>${escapeHtml(x.note||"")}</td><td>${escapeHtml(x.supported_at||"")}</td></tr>`).join("");
+  }catch(e){
+    tbody.innerHTML='<tr><td colspan="5" class="empty-text">Cần cập nhật API supporters trên Cloudflare Worker.</td></tr>';
+    if(totalEl)totalEl.textContent="Tổng: 0đ";
+  }
+}
+
+function resetSupporterForm(){
+  ["supporter-id","supporter-name","supporter-amount","supporter-note"].forEach(id=>document.getElementById(id).value="");
+  document.getElementById("supporter-date").value=new Date().toISOString().slice(0,10);
+  document.getElementById("supporter-published").value="1";
+  clearStatus("supporter-status");
+}
+document.getElementById("supporter-reset")?.addEventListener("click",resetSupporterForm);
+
+document.getElementById("supporter-form")?.addEventListener("submit",async e=>{
+  e.preventDefault();
+  const id=document.getElementById("supporter-id").value;
+  const payload={full_name:document.getElementById("supporter-name").value.trim(),amount:Number(document.getElementById("supporter-amount").value||0),note:document.getElementById("supporter-note").value.trim(),supported_at:document.getElementById("supporter-date").value,published:Number(document.getElementById("supporter-published").value)};
+  try{
+    await api(id?`/api/supporters/${id}`:"/api/supporters",{method:id?"PUT":"POST",headers:adminHeaders(),body:JSON.stringify(payload)});
+    showStatus("supporter-status",id?"Đã cập nhật khoản ủng hộ.":"Đã thêm khoản ủng hộ.");
+    resetSupporterForm(); await Promise.all([loadAdminSupporters(),loadPublicSupporters()]);
+  }catch(e){showStatus("supporter-status",e.message,false);}
+});
+
+async function loadAdminSupporters(){
+  const box=document.getElementById("admin-supporter-list"); if(!box)return;
+  try{
+    const res=await api("/api/supporters"),items=res.data||[];
+    if(!items.length){box.innerHTML='<div class="empty-text">Chưa có khoản ủng hộ.</div>';return;}
+    box.innerHTML=items.map(x=>`<div class="admin-item"><div><h4>${escapeHtml(x.full_name||"")} — ${escapeHtml(formatMoney(x.amount))}</h4><p>${escapeHtml(x.note||"")}</p><p>${escapeHtml(x.supported_at||"")}</p></div><div class="admin-item-actions"><button class="admin-btn small gold" data-supporter-edit="${x.id}" type="button">Sửa</button><button class="admin-btn small danger" data-supporter-delete="${x.id}" type="button">Xóa</button></div></div>`).join("");
+    box.querySelectorAll("[data-supporter-edit]").forEach(b=>b.addEventListener("click",()=>editSupporter(b.dataset.supporterEdit)));
+    box.querySelectorAll("[data-supporter-delete]").forEach(b=>b.addEventListener("click",()=>deleteSupporter(b.dataset.supporterDelete)));
+  }catch(e){box.innerHTML='<div class="empty-text">Cần cập nhật API supporters trên Worker.</div>';}
+}
+async function editSupporter(id){
+  try{
+    const x=(await api(`/api/supporters/${id}`)).data;
+    document.getElementById("supporter-id").value=x.id;document.getElementById("supporter-name").value=x.full_name||"";document.getElementById("supporter-amount").value=x.amount||"";document.getElementById("supporter-note").value=x.note||"";document.getElementById("supporter-date").value=x.supported_at||"";document.getElementById("supporter-published").value=String(x.published??1);
+    document.getElementById("supporter-form").scrollIntoView({behavior:"smooth",block:"start"});
+  }catch(e){showStatus("supporter-status",e.message,false);}
+}
+async function deleteSupporter(id){
+  if(!confirm("Bạn có chắc muốn xóa khoản ủng hộ này?"))return;
+  try{await api(`/api/supporters/${id}`,{method:"DELETE",headers:adminHeaders()});await Promise.all([loadAdminSupporters(),loadPublicSupporters()]);}
+  catch(e){showStatus("supporter-status",e.message,false);}
+}
+
 // Khôi phục phiên đăng nhập trong cùng tab nếu đã có ADMIN_KEY.
 if (getAdminKey()) showDashboard();
 
+setupSupportQr();
+resetSupporterForm();
 loadPublicNews();
 loadPublicStudents();
+loadPublicSupporters();
 </script>
 </body>
 </html>
-
