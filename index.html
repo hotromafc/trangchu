@@ -524,6 +524,11 @@ body.home-mode .home-only { display: block; }
   color: var(--muted);
 }
 
+
+/* SỬA: GIỚI THIỆU CHỈ HIỆN Ở TRANG CHỦ */
+body.page-mode #gioi-thieu { display: none !important; }
+body.home-mode #gioi-thieu { display: block !important; }
+
 </style>
 </head>
 <body class="home-mode">
@@ -531,7 +536,7 @@ body.home-mode .home-only { display: block; }
     <div class="container topbar-inner">
       <div></div>
       <div class="top-contact">
-        <a href="tel:0123456789"><i class="fa-solid fa-phone"></i> 0123 456 789</a>
+        <a href="tel:0913235726"><i class="fa-solid fa-phone"></i> 0913235726</a>
         <a href="mailto:giatocvovan@gmail.com"><i class="fa-solid fa-envelope"></i> giatocvovan@gmail.com</a>
         <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
       </div>
@@ -573,13 +578,13 @@ body.home-mode .home-only { display: block; }
           <h1>NƠI GÌN GIỮ CỘI NGUỒN</h1>
           <h2>NỐI DÀI TRUYỀN THỐNG<br>HƯỚNG TỚI TƯƠNG LAI</h2>
           <div class="ornament"><span></span><i class="fa-solid fa-leaf"></i><span></span></div>
-          <p>Gia tộc Võ Văn đoàn kết, phát huy truyền thống tốt đẹp, khuyến học khuyến tài, vun đắp các giá trị gia đình và xây dựng tương lai tươi sáng cho các thế hệ mai sau.</p>
+          <p>Gia tộc Võ Văn-Châu Xuân đoàn kết, phát huy truyền thống tốt đẹp, khuyến học khuyến tài, vun đắp các giá trị gia đình và xây dựng tương lai tươi sáng cho các thế hệ mai sau.</p>
           <a href="#gioi-thieu" class="btn-primary">TÌM HIỂU THÊM <i class="fa-solid fa-arrow-right"></i></a>
         </div>
       </div>
     </section>
 
-    <section class="intro section" id="gioi-thieu">
+    <section class="intro section home-only" id="gioi-thieu">
       <div class="container intro-card">
         <div class="intro-icon"><i class="fa-solid fa-landmark"></i></div>
         <div>
