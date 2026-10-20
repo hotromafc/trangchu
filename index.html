@@ -184,7 +184,7 @@ if($('calcAmount')){const a=$('calcAmount'),rate=$('calcRate');let n=24;function
   const one = q => document.querySelector(q);
   const set = (q,v) => { const el=one(q); if(el && v!==undefined) el.textContent=v; };
   document.querySelectorAll('.brand-title').forEach(el=>el.textContent=D.TEN_HIEN_THI);
-  document.querySelectorAll('.footer-bottom > span').forEach(el=>el.textContent='© 2026 '+D.TEN_TU_VAN+' · Website tư vấn vay V3.2');
+  document.querySelectorAll('.footer-bottom > span').forEach(el=>el.textContent='© 2026 '+D.TEN_TU_VAN+' · Website tư vấn vay');
   const call=D.SO_DIEN_THOAI.replace(/[^0-9+]/g,'');
   document.querySelectorAll('a[href^="tel:"]').forEach(el=>{el.href='tel:'+call; const strong=el.querySelector('strong'); if(strong)strong.textContent=D.SO_DIEN_THOAI;});
   // Giữ kiểu chữ của tiêu đề mặc định; nếu đổi nội dung thì cập nhật bằng văn bản mới.
