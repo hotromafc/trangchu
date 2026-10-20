@@ -2771,7 +2771,9 @@ if($('calcAmount')){const a=$('calcAmount'),rate=$('calcRate');let n=24;function
   const key=raw.split('/')[1] || 'dang-ky';const page=routes.includes(key)?key:'dang-ky';
   document.querySelectorAll('.app-view').forEach(el=>el.hidden=el.id!=='view-'+page);
   document.querySelectorAll('#navItems a').forEach(a=>{const yes=a.getAttribute('href')==='#/'+page;a.classList.toggle('active',yes);if(yes)a.setAttribute('aria-current','page');else a.removeAttribute('aria-current')});
-  document.title=names[page]+' | Võ Quốc Thiên';
+  document.title = page === 'dang-ky'
+  ? 'Tư Vấn Vay Tiêu Dùng Online | Đăng Ký & Tính Lãi Dự Kiến'
+  : names[page] + ' | Võ Quốc Thiên';
   document.getElementById('navItems')?.classList.remove('open');document.getElementById('navToggle')?.setAttribute('aria-expanded','false');
   if(raw==='/dang-ky/form'){requestAnimationFrame(()=>document.getElementById('dang-ky')?.scrollIntoView({behavior:'smooth'}))}else{window.scrollTo(0,0)}
  }
