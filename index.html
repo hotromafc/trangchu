@@ -35,14 +35,90 @@ window.VAY_CONFIG = Object.freeze({
   turnstileSiteKey: "DIEN_SITE_KEY_TURNSTILE_VAO_DAY"
 });
 </script><script defer="" src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit"></script></head>
+
+<!-- ===========================================================
+   WEBSITE V3.2 - PHẦN DỄ CHỈNH SỬA
+   1. Mở index.html bằng Notepad hoặc VS Code.
+   2. Nhấn Ctrl+F tìm "NOI_DUNG_WEBSITE".
+   3. Chỉ đổi nội dung bên trong dấu ngoặc kép ở khối này.
+   4. Không sửa mã API, không điền Secret vào GitHub.
+=========================================================== -->
+<script>
+const NOI_DUNG_WEBSITE = {
+  "TEN_TU_VAN": "Võ Quốc Thiên",
+  "TEN_HIEN_THI": "VÕ QUỐC THIÊN",
+  "SO_DIEN_THOAI": "0964307247",
+  "TIEU_DE_TRANG_DANG_KY": "Đăng ký vay nhanh và chủ động. Rõ ràng ngay từ đầu.",
+  "MO_TA_TRANG_DANG_KY": "Chia sẻ nhu cầu vay của bạn để được tư vấn về điều kiện, giấy tờ và kế hoạch trả góp. Thông tin dễ hiểu, quy trình minh bạch, hỗ trợ trực tiếp khi cần.",
+  "TIEU_DE_GIOI_THIEU": "Giới thiệu chương trình tư vấn vay",
+  "MO_TA_GIOI_THIEU": "Khám phá cách website hỗ trợ tiếp nhận nhu cầu vay, trao đổi thông tin và chuẩn bị hồ sơ một cách rõ ràng.",
+  "TIEU_DE_QUY_TRINH": "Quy trình tư vấn và đăng ký vay",
+  "MO_TA_QUY_TRINH": "Các bước dưới đây mang tính mô tả tham khảo; thời gian, hồ sơ và kết quả phụ thuộc vào chính sách của đơn vị cho vay.",
+  "TIEU_DE_TINH_LAI": "Tính khoản trả góp dự kiến",
+  "LAI_SUAT_THAM_KHAO": 24,
+  "CAC_BUOC_QUY_TRINH": [
+    {
+      "tieuDe": "Điền yêu cầu tư vấn",
+      "noiDung": "Nhập thông tin liên lạc, số tiền dự kiến, thời hạn mong muốn và xác nhận đồng ý xử lý dữ liệu."
+    },
+    {
+      "tieuDe": "Tư vấn điều kiện",
+      "noiDung": "Nhân viên liên hệ, trao đổi nhu cầu và giải thích các điều kiện, lãi suất, chi phí áp dụng."
+    },
+    {
+      "tieuDe": "Chuẩn bị hồ sơ",
+      "noiDung": "Khách hàng được hướng dẫn cung cấp giấy tờ qua kênh chính thức phù hợp với quy định."
+    },
+    {
+      "tieuDe": "Thẩm định và phản hồi",
+      "noiDung": "Đơn vị cho vay kiểm tra theo quy trình riêng và phản hồi kết quả nếu hồ sơ đáp ứng yêu cầu."
+    }
+  ],
+  "CAU_HOI_THUONG_GAP": [
+    {
+      "cauHoi": "Đăng ký trên website có nghĩa là khoản vay được duyệt không?",
+      "traLoi": "Không. Đây là bước gửi nhu cầu tư vấn. Việc phê duyệt phụ thuộc điều kiện sản phẩm, hồ sơ, quy trình thẩm định và quyết định của đơn vị cho vay."
+    },
+    {
+      "cauHoi": "Có cần trả phí trước để đăng ký tư vấn?",
+      "traLoi": "Biểu mẫu đăng ký tư vấn thử trên website này không yêu cầu nộp phí. Với sản phẩm vay thật, bạn cần đọc rõ các loại phí, điều kiện và hợp đồng chính thức trước khi ký."
+    },
+    {
+      "cauHoi": "Lãi suất và số tiền trả mỗi tháng được xác định thế nào?",
+      "traLoi": "Lãi suất phụ thuộc sản phẩm và các điều kiện áp dụng. Bạn có thể thử công cụ “Tính lãi dự kiến” trên website để minh họa khoản trả góp theo lãi suất giả định tự nhập, nhưng kết quả không phải báo giá."
+    },
+    {
+      "cauHoi": "Số CCCD của tôi được sử dụng vào mục đích gì?",
+      "traLoi": "Thông tin CCCD được dùng để tiếp nhận yêu cầu tư vấn theo thông báo quyền riêng tư. Chỉ gửi dữ liệu thật sau khi hệ thống đã được kiểm thử và có biện pháp bảo vệ phù hợp."
+    },
+    {
+      "cauHoi": "Có thể đăng ký vay bằng điện thoại không?",
+      "traLoi": "Có. Giao diện được thiết kế cho cả điện thoại và máy tính; bạn có thể điền biểu mẫu ở trang Đăng ký vay."
+    },
+    {
+      "cauHoi": "Bao lâu sẽ có kết quả?",
+      "traLoi": "Không thể cam kết thời gian phản hồi hoặc duyệt hồ sơ trước khi xác nhận điều kiện áp dụng. Nhân viên tư vấn sẽ thông tin quy trình và thời gian dự kiến trong trường hợp thực tế."
+    },
+    {
+      "cauHoi": "Tôi có thể thay đổi số tiền hoặc kỳ hạn muốn vay không?",
+      "traLoi": "Bạn có thể thay đổi các tùy chọn ngay trên biểu mẫu trước khi gửi. Khi trao đổi với nhân viên, phương án phù hợp sẽ được tư vấn lại theo chính sách và khả năng trả nợ."
+    },
+    {
+      "cauHoi": "Hồ sơ được duyệt tôi nhận tiền ở đâu?",
+      "traLoi": "Tiền giải ngân về số tài khoản chính chủ khách hàng sau khi ký hợp đồng thành công."
+    }
+  ]
+};
+</script>
+
 <body>
-<div class="announcement"><div class="container"><span class="announce-status"><i class="ping"></i> TƯ VẤN VAY TIÊU DÙNG • VÕ QUỐC THIÊN</span><span class="secondary-note">Hỗ trợ thông tin khoản vay rõ ràng, minh bạch</span></div></div>
+<div class="announcement"><div class="container"><span class="announce-status"><i class="ping"></i> TƯ VẤN VAY TIÊU DÙNG •</span><span class="secondary-note">Hỗ trợ thông tin khoản vay rõ ràng, minh bạch</span></div></div>
 <header class="site-head"><div class="container nav-wrap"><a aria-label="Về trang đăng ký vay" class="brand" href="#/dang-ky"><span class="brand-symbol">V</span><span><span class="brand-title">VÕ QUỐC THIÊN</span><span class="brand-caption">TƯ VẤN VAY TIÊU DÙNG</span></span></a>
 <nav aria-label="Menu website" class="nav-items" id="navItems"><a aria-current="page" class="active" href="#/dang-ky">Đăng ký vay</a><a class="" href="#/gioi-thieu">Giới thiệu</a><a class="" href="#/quy-trinh">Quy trình</a><a class="" href="#/cau-hoi-thuong-gap">Câu hỏi thường gặp</a><a class="" href="#/tinh-lai">Tính lãi dự kiến</a></nav>
 <a class="top-call" href="tel:0964307247"><span style="font-size:20px">☎</span><span>HỖ TRỢ TƯ VẤN<br/><strong>0964 307 247</strong></span></a>
 <button aria-expanded="false" aria-label="Mở menu" class="hamburger" id="navToggle" type="button"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2" viewbox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"></path></svg></button>
 </div></header>
-<div class="demo-ribbon"><div class="container"><b>WEB V3.1:</b> Chỉ dùng dữ liệu giả cho tới khi đã cấu hình Turnstile, Worker và kiểm tra bảo mật.</div></div>
+<div class="demo-ribbon"><div class="container"><b>Bảo Mật</b> Thông tin tuyệt đối được bảo mật.</div></div>
 <main><div class="app-view" id="view-dang-ky">
 <section class="hero"><div class="container hero-grid"><div class="hero-copy"><span class="pill">✦ ĐĂNG KÝ TƯ VẤN TRỰC TUYẾN</span><h1>Đăng ký vay<br/><span>nhanh và chủ động.</span><br/>Rõ ràng ngay từ đầu.</h1><p class="lead">Chia sẻ nhu cầu vay của bạn để được tư vấn về điều kiện, giấy tờ và kế hoạch trả góp. Thông tin dễ hiểu, quy trình minh bạch, hỗ trợ trực tiếp khi cần.</p><div class="hero-actions"><a class="btn btn-primary" href="#dang-ky">Đăng ký ngay <span>→</span></a><a class="btn btn-outline" href="#/tinh-lai">▤ Tính lãi dự kiến</a></div><div class="trust-row"><span class="trust"><span class="trust-icon">✓</span><span><strong>Đăng ký đơn giản</strong><small>Thông tin cơ bản</small></span></span><span class="trust"><span class="trust-icon">☎</span><span><strong>Tư vấn trực tiếp</strong><small>Hỗ trợ cá nhân hóa</small></span></span><span class="trust"><span class="trust-icon">⌁</span><span><strong>Điều kiện rõ ràng</strong><small>Không cam kết duyệt vay</small></span></span></div></div>
 <div class="register-card" id="dang-ky"><div class="form-heading"><div><div class="tiny-tag">BẮT ĐẦU TẠI ĐÂY</div><h2>Đăng ký tư vấn vay</h2><p>Điền thông tin để gửi nhu cầu tư vấn vay.</p></div><div class="shield">♧</div></div>
@@ -62,7 +138,7 @@ window.VAY_CONFIG = Object.freeze({
 <div class="modal-backdrop" hidden="" id="detailModal"><div aria-labelledby="detailTitle" aria-modal="true" class="dialog" role="dialog" style="max-width:620px"><button aria-label="Đóng chi tiết" class="close-x" id="closeDetail" type="button">×</button><div class="section-eyebrow">CHI TIẾT HỒ SƠ • CHỈ ADMIN</div><h2 id="detailTitle">Thông tin khách hàng</h2><div style="font-size:10px;color:#8297a2;margin-bottom:15px">Mã: <b id="detailCode"></b></div><div class="drawer-info" id="detailsInfo"></div><p class="sensitive-hint" id="detailFullHint" role="status"></p><div class="admin-form-row" style="margin-top:18px"><div class="field"><label for="detailStatus">Trạng thái</label><select id="detailStatus"><option value="cho_tu_van">Chờ tư vấn</option><option value="da_lien_he">Đã liên hệ</option><option value="dang_tu_van">Đang xử lý</option><option value="hoan_tat">Hoàn tất</option><option value="khong_phu_hop">Đã hủy</option></select></div><div class="field" style="flex:2"><label for="detailNote">Ghi chú nội bộ</label><input id="detailNote" maxlength="500" placeholder="Nhập ghi chú nội bộ"/></div></div><div style="display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-top:20px"><button class="danger-btn" id="deleteRecord" type="button">Xóa hồ sơ</button><button class="btn btn-primary" id="saveDetail" type="button">Lưu cập nhật →</button></div></div></div>
 </main></div></main>
 <footer class="site-footer"><div class="container footer-main"><div class="footer-brand"><a class="brand" href="#/dang-ky"><span class="brand-symbol">V</span><span><span class="brand-title">VÕ QUỐC THIÊN</span><span class="brand-caption">TƯ VẤN VAY TIÊU DÙNG</span></span></a><p>Website giới thiệu và tiếp nhận nhu cầu tư vấn vay tiêu dùng. Đăng ký không đồng nghĩa với phê duyệt hoặc cam kết giải ngân.</p></div><div class="footer-cols"><div><strong>Khám phá</strong><a href="#/dang-ky">Đăng ký vay</a><a href="#/gioi-thieu">Giới thiệu</a><a href="#/quy-trinh">Quy trình</a><a href="#/cau-hoi-thuong-gap">Câu hỏi thường gặp</a><a href="#/tinh-lai">Tính lãi dự kiến</a></div><div><strong>Hỗ trợ</strong><a href="tel:0964307247">☎ 0964 307 247</a><a href="mailto:thien.mafc@outlook.com">✉ Email liên hệ</a><a href="#/quyen-rieng-tu">Quyền riêng tư</a></div></div></div>
-<div class="container footer-bottom"><span>© 2026 Võ Quốc Thiên · Website tư vấn vay V3.1</span><div class="footer-bottom-right"><a href="#/quyen-rieng-tu">Chính sách dữ liệu</a><a aria-label="Đăng nhập quản trị" class="quiet-admin" href="#/admin" title="Đăng nhập Admin"><svg aria-hidden="true" fill="none" height="13" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24" width="13"><rect height="12" rx="2" width="16" x="4" y="10"></rect><path d="M8 10V7a4 4 0 0 1 8 0v3"></path></svg></a></div></div></footer>
+<div class="container footer-bottom"><span>© 2026 Võ Quốc Thiên · Website tư vấn vay </span><div class="footer-bottom-right"><a href="#/quyen-rieng-tu">Chính sách dữ liệu</a><a aria-label="Đăng nhập quản trị" class="quiet-admin" href="#/admin" title="Đăng nhập Admin"><svg aria-hidden="true" fill="none" height="13" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24" width="13"><rect height="12" rx="2" width="16" x="4" y="10"></rect><path d="M8 10V7a4 4 0 0 1 8 0v3"></path></svg></a></div></div></footer>
 <script>(()=>{'use strict';
 const $=id=>document.getElementById(id), fmt=n=>new Intl.NumberFormat('vi-VN').format(n), money=n=>fmt(Math.round(n))+' đ';
 const C=window.VAY_CONFIG||{},API=String(C.apiBase||'').replace(/\/$/,'');
@@ -101,4 +177,30 @@ if($('calcAmount')){const a=$('calcAmount'),rate=$('calcRate');let n=24;function
  }
  window.addEventListener('hashchange',route);route();
 })();
-</script></body></html>
+</script><script>
+// Tự động đưa nội dung từ bảng NOI_DUNG_WEBSITE lên các trang.
+(function () {
+  const D = NOI_DUNG_WEBSITE;
+  const one = q => document.querySelector(q);
+  const set = (q,v) => { const el=one(q); if(el && v!==undefined) el.textContent=v; };
+  document.querySelectorAll('.brand-title').forEach(el=>el.textContent=D.TEN_HIEN_THI);
+  document.querySelectorAll('.footer-bottom > span').forEach(el=>el.textContent='© 2026 '+D.TEN_TU_VAN+' · Website tư vấn vay V3.2');
+  const call=D.SO_DIEN_THOAI.replace(/[^0-9+]/g,'');
+  document.querySelectorAll('a[href^="tel:"]').forEach(el=>{el.href='tel:'+call; const strong=el.querySelector('strong'); if(strong)strong.textContent=D.SO_DIEN_THOAI;});
+  // Giữ kiểu chữ của tiêu đề mặc định; nếu đổi nội dung thì cập nhật bằng văn bản mới.
+  const hero=one('#view-dang-ky .hero-copy h1');
+  if(hero && D.TIEU_DE_TRANG_DANG_KY !== 'Đăng ký vay nhanh và chủ động. Rõ ràng ngay từ đầu.') hero.textContent=D.TIEU_DE_TRANG_DANG_KY;
+  set('#view-dang-ky .hero-copy .lead',D.MO_TA_TRANG_DANG_KY);
+  set('#view-gioi-thieu .subpage-hero h1',D.TIEU_DE_GIOI_THIEU);
+  set('#view-gioi-thieu .subpage-hero p',D.MO_TA_GIOI_THIEU);
+  set('#view-quy-trinh .subpage-hero h1',D.TIEU_DE_QUY_TRINH);
+  set('#view-quy-trinh .subpage-hero p',D.MO_TA_QUY_TRINH);
+  set('#view-tinh-lai .subpage-hero h1',D.TIEU_DE_TINH_LAI);
+  const rate=one('#calcRate');if(rate && Number.isFinite(Number(D.LAI_SUAT_THAM_KHAO))){rate.value=String(D.LAI_SUAT_THAM_KHAO);rate.dispatchEvent(new Event('input',{bubbles:true}));}
+  const cards=document.querySelectorAll('#view-quy-trinh .step-card');
+  (D.CAC_BUOC_QUY_TRINH||[]).forEach((x,i)=>{if(!cards[i])return;const h=cards[i].querySelector('h3'),p=cards[i].querySelector('p');if(h)h.textContent=x.tieuDe;if(p)p.textContent=x.noiDung;});
+  const details=document.querySelectorAll('#view-cau-hoi-thuong-gap details');
+  (D.CAU_HOI_THUONG_GAP||[]).forEach((x,i)=>{if(!details[i])return;const summary=details[i].querySelector('summary');if(summary)summary.textContent=x.cauHoi;const answer=details[i].querySelector('p');if(answer)answer.textContent=x.traLoi;});
+})();
+</script>
+</body></html>
